@@ -1,8 +1,9 @@
-package com.example.abhirham.smackchat
+package com.example.abhirham.smackchat.controller
 
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import com.example.abhirham.smackchat.R
 import kotlinx.android.synthetic.main.activity_createuseract.*
 import java.util.*
 
