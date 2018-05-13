@@ -18,7 +18,8 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".loginact"></activity>
+        <activity android:name=".loginact" />
+        <activity android:name=".createuseract"></activity>
     </application>
 
 </manifest>
