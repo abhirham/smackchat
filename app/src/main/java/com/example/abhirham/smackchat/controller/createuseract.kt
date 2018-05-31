@@ -3,7 +3,10 @@ package com.example.abhirham.smackchat.controller
 import android.graphics.Color
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import com.example.abhirham.smackchat.R
+import com.example.abhirham.smackchat.R.id.*
+import com.example.abhirham.smackchat.services.authservice
 import kotlinx.android.synthetic.main.activity_createuseract.*
 import java.util.*
 
@@ -40,7 +43,24 @@ class createuseract : AppCompatActivity() {
             val savedb = b.toDouble()/255
             avataarcolor = "[$savedr, $savedg, $savedb, 1]"
         }
+
+        createuserbtn.setOnClickListener {
+            authservice.registeruser(this,cemail.text.toString(),cpassword.text.toString()){complete ->
+                if(complete)
+                    authservice.loginuser(this,cemail.text.toString(),cpassword.text.toString()){loginsucess ->
+                        if(loginsucess){
+                            println(authservice.authtoken)
+                            println(authservice.useremail)
+                        }
+                    }
+                else
+                    Toast.makeText(this,"Failed to add user",Toast.LENGTH_LONG).show()
+
+            }
+        }
     }
+
+
 
 
 }
